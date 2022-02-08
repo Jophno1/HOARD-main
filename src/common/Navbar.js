@@ -405,7 +405,67 @@ const Navbar = (props) => {
         item.metal = metal;
         item.imageURL = imageurl;
         setcoinidData(item);
-        setTotalScore(0);
+        let temptotal = 0;
+        let newArray = componentValues;
+        let newArray1 = csvReport;
+        let tindex = common.statsData.findIndex((item) => {return item.name === 'First Name'});
+        let ptss;
+        console.log(coiniddata[0], "coiniddata");
+        if(common.statsData[tindex].value.find((item, index) => {return item.name === firstname}) !== undefined){
+          ptss = (common.statsData[tindex].value.find((item, index) => {return item.name === firstname})).point;
+          newArray[tindex] = {name: firstname, point: ptss};
+          temptotal = temptotal + parseInt(ptss);
+          newArray1.data.push({type:"First Name", name:firstname, point: ptss});
+        }
+        tindex = common.statsData.findIndex((item) => {return item.name === 'Surname'});
+        if(common.statsData[tindex].value.find((item, index) => {return item.name === surname}) !== undefined){
+        ptss = (common.statsData[tindex].value.find((item, index) => {return item.name === surname})).point;
+        newArray[tindex] = {name: surname, point: ptss};
+        temptotal = temptotal + parseInt(ptss);
+        newArray1.data.push({type:"Surname", name:surname, point: ptss});
+        }
+        tindex = common.statsData.findIndex((item) => {return item.name === 'Country Found'});
+        if(common.statsData[tindex].value.find((item, index) => {return item.name === where}) !== undefined){
+        ptss = (common.statsData[tindex].value.find((item, index) => {return item.name === where})).point;
+        newArray[tindex] = {name: where, point: ptss};
+        temptotal = temptotal + parseInt(ptss);
+        newArray1.data.push({type:"Country Found", name:where, point: ptss});
+        }
+        tindex = common.statsData.findIndex((item) => {return item.name === 'Month Found'});
+        if(common.statsData[tindex].value.find((item, index) => {return item.name == coiniddata[0].whenTheyFoundItMonth}) !== undefined){ptss = (common.statsData[tindex].value.find((item, index) => {return item.name == coiniddata[0].whenTheyFoundItMonth})).point;
+        newArray[tindex] = {name: coiniddata[0].whenTheyFoundItMonth, point: ptss};
+        temptotal = temptotal + parseInt(ptss);
+        newArray1.data.push({type:"Month Found", name:coiniddata[0].whenTheyFoundItMonth, point: ptss});
+        }
+        tindex = common.statsData.findIndex((item) => {return item.name === 'Day of Month Found'});
+        if(common.statsData[tindex].value.find((item, index) => {return item.name == coiniddata[0].whenTheyFoundItDay}) !== undefined){ptss = (common.statsData[tindex].value.find((item, index) => {return item.name == coiniddata[0].whenTheyFoundItDay})).point;
+        newArray[tindex] = {name: coiniddata[0].whenTheyFoundItDay, point: ptss};
+        temptotal = temptotal + parseInt(ptss);
+        newArray1.data.push({type:"Day of Month Found", name:coiniddata[0].whenTheyFoundItDay, point: ptss});
+        }
+        tindex = common.statsData.findIndex((item) => {return item.name === 'Year Found'});
+        if(common.statsData[tindex].value.find((item, index) => {return item.name == coiniddata[0].whenTheyFoundItYear}) !== undefined){ptss = (common.statsData[tindex].value.find((item, index) => {return item.name == coiniddata[0].whenTheyFoundItYear})).point;
+        newArray[tindex] = {name: coiniddata[0].whenTheyFoundItYear, point: ptss};
+        temptotal = temptotal + parseInt(ptss);
+        newArray1.data.push({type:"Year Found", name:coiniddata[0].whenTheyFoundItYear, point: ptss});
+        }
+        tindex = common.statsData.findIndex((item) => {return item.name === 'Coin Age'});
+        if(common.statsData[tindex].value.find((item, index) => {return item.name == coiniddata[0].coinAgeOfCoin}) !== undefined){ptss = (common.statsData[tindex].value.find((item, index) => {return item.name == coiniddata[0].coinAgeOfCoin})).point;
+        newArray[tindex] = {name: coiniddata[0].coinAgeOfCoin, point: ptss};
+        temptotal = temptotal + parseInt(ptss);
+        newArray1.data.push({type:"Coin Age", name:coiniddata[0].coinAgeOfCoin, point: ptss});
+        }
+        tindex = common.statsData.findIndex((item) => {return item.name === 'Metal of Coin'});
+        if(common.statsData[tindex].value.find((item, index) => {return item.name == coiniddata[0].metal.toUpperCase()}) !== undefined){ptss = (common.statsData[tindex].value.find((item, index) => {return item.name == coiniddata[0].metal.toUpperCase()})).point;
+        newArray[tindex] = {name: coiniddata[0].metal.toUpperCase(), point: ptss};
+        temptotal = temptotal + parseInt(ptss);
+        newArray1.data.push({type:"Metal of Coin", name:coiniddata[0].metal.toUpperCase(), point: ptss});
+        newArray1.data.push({type:"Coin ID", name: inputval, point: temptotal});
+        }
+
+        setComponentValues([...newArray]);
+        setTotalScore(temptotal);
+        setCsvReport({...csvReport, data: newArray1.data, filename: filename});
      }
     }
   }  
@@ -856,7 +916,7 @@ const Navbar = (props) => {
                           return (
                             <div className="mb-[3px]" key={index}>
                               <div className="ml-[-10px] text-gray-600 mb-[3px]">{compo.name}</div>
-                              <PropertyDropdown type={compo.type} propList={compo.value} sendComponentValue={getComponentValue} value={componentValues[index]} index={index} />
+                              <PropertyDropdown type={compo.type} propList={compo.value} sendComponentValue={getComponentValue} value={componentValues[index]} index={index} name={compo.name} />
                             </div>
                           );
                         })
