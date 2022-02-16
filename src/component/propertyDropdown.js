@@ -71,9 +71,9 @@ const PropertyDropdown = (props) => {
                   {type && curSel.length > 0 && (name !== "Women Right Facing" && name !== "Middle Rings" && name !== "Men Right Facing" && name !== "Women Left Facing" && name !== "Men Left Facing") ?
                   <div className="flex flex-row justify-between">
                     <div id="picture">
-                      <a className="small" href="#nogo"><img src={((curSel.replace(/\s/g, '')).split('='))[0]} />
+                      <div className="small"><img src={((curSel.replace(/\s/g, '')).split('='))[0]} />
                       <img className="large fade" src={((curSel.replace(/\s/g, '')).split('='))[0]} />
-                      </a>
+                      </div>
                     </div>
                       <div className="ml-[5px]">&nbsp;&nbsp;= {(curSel.split('='))[1]}</div>
                   </div>
@@ -139,9 +139,9 @@ const PropertyDropdown = (props) => {
       <div className="bg-black px-2 py-1 rounded-sm border border-slate-200 h-[35px] w-48 flex flex-row items-center justify-between propImgButton">
           <div className="flex flex-row items-center flex-1 pr-2 cursor-pointer" onClick={() => imgPropClick()}>
             <div id="picture">
-              <a className="small" href="#nogo"><img src={((curSel.replace(/\s/g, '')).split('='))[0]} />
+              <div className="small"><img src={((curSel.replace(/\s/g, '')).split('='))[0]} />
               <img className="large fade" src={((curSel.replace(/\s/g, '')).split('='))[0]} />
-              </a>
+              </div>
             </div>
             <div className="ml-[5px]">&nbsp;&nbsp;= {(curSel.split('='))[1]}</div>
           </div>

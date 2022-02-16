@@ -14,8 +14,10 @@ const initialState = {
   pointsValue : [],
   metaData: [],
   statsData: [],
+  leaderBoardData : [],
   isLoadingMetaData: false,
   isLoadingStatsData: false,
+  isLoadingLeaderBoardData: false,
   isfinishLoadStatsData: false,
   isSearching: false,
   walletStatus: false,
@@ -62,6 +64,12 @@ const commonReducer = (state = initialState, action) => {
         isfinishLoadStatsData: false,
       }
       break;
+    case "START_LOAD_LEADERBOARDDATA":
+      return {
+        ...state,
+        isLoadingLeaderBoardData: true,
+      }
+      break;
     case "LOAD_METADATA":
       return {
         ...state,
@@ -76,6 +84,13 @@ const commonReducer = (state = initialState, action) => {
         isLoadingStatsData: false,
         isfinishLoadStatsData: true,
       };
+      break;
+    case "LOAD_LEADERBOARDDATA":
+      return {
+        ...state,
+        leaderBoardData: action.payload,
+        isLoadingLeaderBoardData: false,
+      }
       break;
     case "DO_SEARCH":
       let walletStatus = state.searchOptions.wallet == '' ? false : true;

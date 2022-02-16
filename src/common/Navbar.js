@@ -9,7 +9,8 @@ import {
   saveKeyword, 
   doSearch,
   resetSearchOptions,
-  loadStatsData
+  loadStatsData,
+  loadLeaderBoardData
 } from '../redux/common/commonActions';
 import Modal from "@material-tailwind/react/Modal";
 import ModalBody from "@material-tailwind/react/ModalBody";
@@ -292,6 +293,7 @@ const Navbar = (props) => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const [newSearchModal, setNewSearchModal] = useState(false);
+  const [leaderBoardModal, setLeaderBoardModal] = useState(false);
   const [status, setStatus] = useState("-200%");
   const [coinidData, setcoinidData] = useState({});
   const common = useSelector((state) => state.common);
@@ -303,6 +305,11 @@ const Navbar = (props) => {
     headers: headers,
     filename: 'RaritySearch.csv',
   });
+
+  useEffect(() => {
+    dispatch(loadLeaderBoardData());
+  }, [])
+
   const closeModal = () => { 
     setShowModal(false);
   }
@@ -338,6 +345,15 @@ const Navbar = (props) => {
     const newArray = new Array(common.statsData.length);
     setComponentValues([...newArray]);
     setNewSearchModal(true);
+  }
+
+  const onLeaderboardClick = () => {
+    if(common.leaderBoardData.length === 0) dispatch(loadLeaderBoardData());
+    //setLeaderBoardModal(true);
+  }
+
+  const closeLeaderBoardModal = () => {
+    setLeaderBoardModal(false);
   }
 
   const getComponentValue = async (pointValue, index, names, points) => {
@@ -410,7 +426,6 @@ const Navbar = (props) => {
         let newArray1 = csvReport;
         let tindex = common.statsData.findIndex((item) => {return item.name === 'First Name'});
         let ptss;
-        console.log(coiniddata[0], "coiniddata");
         if(common.statsData[tindex].value.find((item, index) => {return item.name === firstname}) !== undefined){
           ptss = (common.statsData[tindex].value.find((item, index) => {return item.name === firstname})).point;
           newArray[tindex] = {name: firstname, point: ptss};
@@ -485,7 +500,7 @@ const Navbar = (props) => {
                   </StyledRoundButton>
                 </StyledIntroLink>
                 { 
-                  window.location.pathname == "/introduction" 
+                  window.location.pathname == "/introduction" || window.location.pathname == "/leaderboard"
                   ? null
                   : <StyledAdvancedGroup>
                     <StyledRoundButton
@@ -517,7 +532,7 @@ const Navbar = (props) => {
               : <StyledLogo 
                   alt={"example"} 
                   src={"/images/HoardToken.png"}
-                  className="lg:-ml-[6%]"
+                  className=""
                   onClick={() => {
                       window.scrollTo(0,0);
                       window.open(
@@ -530,15 +545,28 @@ const Navbar = (props) => {
             <div className="flex flex-row items-center">
               <div>
               { 
-                window.location.pathname == "/introduction" 
+                window.location.pathname == "/introduction" || window.location.pathname == "/leaderboard"
                 ? null
-                : <StyledAdvancedGroup>
-                  <StyledRoundButton
-                    className="w-[268px] mr-16 hidden md:flex"
-                    onClick={() => onNewSearchClick()}>
-                      RARITY SEARCH
-                  </StyledRoundButton>
-                </StyledAdvancedGroup>   
+                : <div className="flex flex-row">
+                    <StyledIntroLink className="md:block hidden">
+                      <StyledRoundButton
+                        className="w-[268px] mr-16">
+                          <Link to="/leaderboard" target={"_blank"} className="white" onClick={() => {
+                            setStatus("-200%")
+                            onLeaderboardClick()}}>
+                          LEADERBOARD
+                          </Link>
+                      </StyledRoundButton>
+                    </StyledIntroLink>
+                    <StyledAdvancedGroup>
+                      <StyledRoundButton
+                        className="w-[268px] hidden md:flex"
+                        onClick={() => onNewSearchClick()}>
+                          RARITY SEARCH
+                      </StyledRoundButton>
+                    </StyledAdvancedGroup>
+                </div>
+                
               }
               </div>     
               <StyledIconGroup className="mt-2">
@@ -589,7 +617,20 @@ const Navbar = (props) => {
                       setStatus("-200%");
                       onNewSearchClick();
                     }}>RARITY SEARCH</div>
-                  </StyledRoundButton>   
+                  </StyledRoundButton>
+                  {/* <StyledRoundButton style={{ width: '60%', marginTop:20 }}>
+                    <div onClick={() => {
+                      setStatus("-200%");
+                      onLeaderboardClick();
+                    }}>LEADERBOARD</div>
+                  </StyledRoundButton>    */}
+                  <StyledRoundButton style={{ width: '60%', marginTop:20 }}>
+                      <Link to="/leaderboard" target={"_blank"} className="white" onClick={() => {
+                        setStatus("-200%")
+                        onLeaderboardClick()}}>
+                      LEADERBOARD
+                      </Link>
+                  </StyledRoundButton>
                   <StyledSelectTokenDetailBlock>
                     <StyledWalletButton className="advanced-input mrb">
                       <StyledScanSelect 
@@ -926,6 +967,62 @@ const Navbar = (props) => {
                 </div>
               </div>
               :<StyledSelectTokenGroup></StyledSelectTokenGroup>
+              }
+            </ModalBody>
+          </Modal>
+          <Modal size="lg" active={leaderBoardModal} toggler={() => closeLeaderBoardModal()}>
+            <ModalBody className="bg-white nice-scroll">
+              {
+                common.isLoadingLeaderBoardData === true
+                ?<StyledSelectTokenGroup>
+                  <div className="sk-chase">
+                    <div className="sk-chase-dot"></div>
+                    <div className="sk-chase-dot"></div>
+                    <div className="sk-chase-dot"></div>
+                    <div className="sk-chase-dot"></div>
+                    <div className="sk-chase-dot"></div>
+                    <div className="sk-chase-dot"></div>
+                  </div>
+                </StyledSelectTokenGroup>
+                : <div className="text-gray-600">
+                    <div className="w-full justify-center md:flex hidden">
+                      <img src="/images/HOARDTOKENMAINBLACK.png" className="h-[100px]" />
+                    </div>
+                    <div className="md:text-[24px] text-[18px] mt-[10px] pb-[10px] mb-[10px] flex flex-row justify-between w-full border-b-[2px] border-white border-solid">
+                      <div className="md:w-[50px] w-[36px] text-center">Rank</div>
+                      <div className="md:w-[66px] w-[45px] text-center">Points</div>
+                      <div className="w-[175px] text-center md:block hidden">Image</div>
+                      <div className="md:w-[100px] w-[70px] text-center">Coin No.</div>
+                      <div className="md:w-[280px] w-[120px] text-center">Wallet Address</div>
+                      <div className="w-[105px] text-center md:block hidden">CSV Link</div>
+                      <div className="w-[70px] text-center md:block hidden">Metal</div>
+                      <div className="w-[105px] text-center md:block hidden">How Rare</div>
+                      <div className="w-[50px] text-center md:block hidden">Mic1</div>
+                      <div className="w-[50px] text-center md:block hidden">Mic2</div>
+                      <div className="w-[50px] text-center md:block hidden">Mic3</div>
+                    </div>
+                    <div className="overflow-y-auto leaderboard nice-scroll">
+                      {
+                        common.leaderBoardData.map((item, index) => {
+                          return(
+                            <div className="flex flex-row justify-between md:text-[16px] text-[12px] py-[5px] w-full hover:bg-gray-200" key={index}>
+                              <div className="md:w-[50px] w-[36px] text-center">{index + 1}</div>
+                              <div className="md:w-[66px] w-[45px] text-center">{item.points}</div>
+                              <div className="w-[175px] text-center md:block hidden"><img src={item.coinImage} className="w-full" /></div>
+                              <div className="md:w-[100px] w-[60px] text-center">{item.coinNumber}</div>
+                              <div className="md:w-[280px] w-[120px] text-center overflow-hidden text-ellipsis whitespace-nowrap">{item.walletOwner}</div>
+                              <div className="w-[105px] text-center md:block hidden"><a href={item.linkToCsvData} target="_blank">{item.linkToCsvData}</a></div>
+                              <div className="w-[70px] text-center md:block hidden">{item.metal}</div>
+                              <div className="w-[105px] text-center md:block hidden">{item.howRare}</div>
+                              <div className="w-[50px] text-center md:block hidden">{item.mic1}</div>
+                              <div className="w-[50px] text-center md:block hidden">{item.mic2}</div>
+                              <div className="w-[50px] text-center md:block hidden">{item.mic3}</div>
+                            </div>
+                          );
+                        })
+                      }
+                    </div>
+                  </div>
               }
             </ModalBody>
           </Modal>
