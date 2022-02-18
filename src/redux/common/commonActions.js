@@ -89,7 +89,7 @@ export const loadStatsData = () => {
           })
         });
         statsData.push(item);
-      })
+      });
       dispatch({ type: 'LOAD_STATSDATA', payload: statsData });
       return statsData;
     }
@@ -98,6 +98,42 @@ export const loadStatsData = () => {
     }
     try {
       const success = await axios.get('https://sheets.googleapis.com/v4/spreadsheets/1toE1liv0LdL7Y_SDDWA_aKFFhC9NrB4vWsfYhxCfr-Y/values/CoinLayerRef?alt=json&key=AIzaSyDk8yYgkTfh32Id-t0n2C_HzN21EhoPU7U');
+      return onSuccess(success);
+    } catch (error) {
+      return onError(error);
+    }
+  }
+};
+
+export const loadLeaderBoardData = () => {
+  return async dispatch => {
+    dispatch({ type: 'START_LOAD_LEADERBOARDDATA' });
+    
+    async function onSuccess(success) {
+      let rawData = success.data.values;
+      let leaderboardData = [];
+      let keys = rawData[0].slice(1, rawData[0].length);
+      rawData.forEach((o, index) => {
+        if(index > 0 && parseInt(o[1]) > 0){
+          let item={};
+          keys.forEach((key, ind) => {
+            if(key !== ""){
+              item[camelCase(key)] = ind < o.length ? o[ind + 1] : '';
+            }
+          });
+          leaderboardData.push(item);
+        }
+      });
+      leaderboardData.sort((a, b) => b.pts - a.pts);
+      console.log(leaderboardData, "leaderboardData");
+      dispatch({ type: 'LOAD_LEADERBOARDDATA', payload: leaderboardData });
+      return leaderboardData;
+    }
+    function onError(error) {
+      return error;
+    }
+    try {
+      const success = await axios.get('https://sheets.googleapis.com/v4/spreadsheets/1toE1liv0LdL7Y_SDDWA_aKFFhC9NrB4vWsfYhxCfr-Y/values/10%20-%20RANKING?alt=json&key=AIzaSyDk8yYgkTfh32Id-t0n2C_HzN21EhoPU7U');
       return onSuccess(success);
     } catch (error) {
       return onError(error);

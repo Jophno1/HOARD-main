@@ -28,22 +28,22 @@ function Introduction() {
             HOARD WALLET ADDRESS:
           </div>
           <div className="text-wrap mt-1 text-lg text-left line-height">
-            You can reserve your HOARD by sending XRD (Radix Tokens) to the HOARD WALLET address below.
+            You can reserve your HOARD by sending 25 XRD per HOARD TOKEN (Radix Tokens) to the HOARD WALLET address below.
           </div>
           <div className="text-wrap wallet-addr text-lg text-left font-bold w-full">
             rdx1qsp5hfmupgdgxa3akxtyl0thaudzu4zj4547znru58kg09tkdtz6qjg35gf0e
           </div>
           <div className="text-wrap font-bold text-xl mt-4 text-left">
-            EACH HOARD TOKEN IS 25 XRD:
+            EACH HOARD TOKEN IS 25 XRD currently:
           </div>
           <div className="text-wrap mt-1 text-lg text-left line-height">
-            Add a note matching the units you have purchased. (DO NOT ENCRYPT)
+            Add a note matching the units you have purchased. for Example -HOARD TOKENS x 10 please-, DO NOT ENCRYPT. Please do not  specify coin numbers as this Project Randmomly Distributes the Tokens for Fairness. If not followed exactly, your funds will be sent back, subject to -1 XRD to cover transaction fees. 
           </div>
           <div className="text-wrap font-bold text-xl mt-4 text-left ">
             HOARD TOKEN/S WILL BE SENT BACK TO YOUR WALLET IN RETURN:
           </div>
           <div className="text-wrap mt-1 text-lg text-left line-height">
-            This is currently a manual process right now, please be patient.
+            This is currently a manual process right now, please be patient. Once you have recieved your HOARD TOKENS, you can check your allocation by coming back to www.hoardtokens.com website. Here you can see all of your coins by adding your wallet address in the ADVANCED BUTTON (wallet) text entry, as well as filter specific properties. If you want to guestimate the points of your HOARD TOKENS then you can goto the RARITY SEARCH BUTTON and export the data to compare. Lastly we have the LEADERBOARD BUTTON. Inside this page is the current leaderboard which will organically grow the more coins are purchased. The final Leaderboard is completed once all the 10000 HOARD TOKENS have been SOLD.
           </div>
           <div className="text-wrap font-bold text-xl mt-4 text-left">
             FIND US HERE FOR VERIFICATION:
@@ -99,67 +99,34 @@ function Introduction() {
             Please do not encrypt or we will not be able to see the negociation. 
           </div>
           <div className="text-wrap mt-4 text-xl text-left font-bold ">
-            SWAP A TOKEN:
+            trading -offer- for -request-
           </div>
           <div className="text-wrap mt-1 text-lg  text-left line-height">
-            The Transaction should include 'swap' in the notes.
+            where -offer- is what you are sending in the transaction and -request- is what the other party is sending in theirs.
           </div>
           <div className="text-wrap text-lg  text-left">
-            The 'swap' OF A HOARD TOKEN is swapping like for like.
+            If there is no XRD being traded, please send an additional transaction with the 10 xrd trading fee from either wallet with the message - trading fee.
           </div>
           <div className="text-wrap text-lg  text-left">
-            If this is a one for one swap, then you just need to add the minimum 10 xrd (from each wallet - 20 in total) trading fee and a note saying "swap".
+            For example, if you want to trade 100 xrd for HOARD 9000 and 10000, you would send 100 xrd to the HOARD TOKEN wallet with this message:.
           </div>
           <div className="text-wrap mt-4 text-xl text-left font-bold">
-            An Example of swapping a HOARD token could be:
+            trading 100 xrd for 9000, 10000
           </div>
           <div className="text-wrap mt-1 text-lg  text-left line-height">
-            Hoard Member 1 : Swap 00001 for 10000 Trading fee 10 xrd
+            The other party would have to send 2 HOARD tokens to the HOARD TOKEN wallet with this message:
           </div>
           <div className="text-wrap text-lg  text-left">
-            Hoard Member 2 : Swap 10000 for 00001 Trading fee 10 xrd
+            trading 9000, 10000 for 100 xrd
           </div>
           <div className="text-wrap text-lg  text-left">
-            The Hoard Tokens can stay in your wallets as its a 1-1 'swap'
-          </div>
-          <div className="text-wrap text-lg  text-left">
-            We will then change the database to reflect the swap once we have a pair.
-          </div>
-          <div className="text-wrap mt-4 text-xl text-left font-bold ">
-            SALE (sell a token):
-          </div>
-          <div className="text-wrap mt-1 text-lg  text-left line-height">
-            The 'sell' is selling the coin/s and the 'buy' is buying the coins. 
-          </div>
-          <div className="text-wrap text-lg  text-left">
-            How is this processed?
-          </div>
-          <div className="text-wrap mt-4 text-xl text-left font-bold">
-            An Example of selling a HOARD token could be:
-          </div>
-          <div className="text-wrap mt-3 text-xl text-left font-bold">
-            Hoard Member 1 wants to buy a HOARD token from Hoard Member 2 for 200 XRD they would add in the notes as follows: 
-          </div>
-          <div className="text-wrap mt-1 text-lg  text-left line-height">
-            Hoard Member 1 : Sell 00001 for 200 xrd - you send 8 HOARD Tokens to our wallet address 
-          </div>
-          <div className="text-wrap wallet-addr text-lg  text-left">
-            rdx1qsp5hfmupgdgxa3akxtyl0thaudzu4zj4547znru58kg09tkdtz6qjg35gf0e
-          </div>
-          <div className="text-wrap text-lg  text-left">
-            Hoard Member 2 : Buy  00001 for 200 xrd - you send 200 xrd to our wallet address (above) we send HOARD 1 the 200 XRD less or 10% (20 xrd) then you recieve 8 HOARD Tokens.
-          </div>
-          <div className="text-wrap text-lg  text-left">
-            If multiple tokens are swapped add a comma after each token numeric 00001,00002,00003.
-          </div>
-          <div className="text-wrap text-lg  text-left">
-            The database will then be updated to reflect this.
+            If there is a match there, the trade will be finalized the next time we process the trade requests. The recipient would receive 90 xrd, 100 - 10 trading fee, and you would recieve 2 HOARD TOKENS. The database will be updated to reflect the new ownership. If you wish to cancel a pending trade, please get in touch in the links provided.
           </div>
           <div className="text-wrap font-bold text-3xl mt-8">
             DISCLAIMER
           </div>
           <div className="text-wrap wallet-addr font-bold text-lg mt-2">
-            The Hoard Team will NOT be held responsible if your transactions are incorrect. Please make sure our address is accurate (see below). You are advised to NOT use any ethereum wallets for sending XRD tokens to us. Wallet address here: rdx1qsp5hfmupgdgxa3akxtyl0thaudzu4zj4547znru58kg09tkdtz6qjg35gf0e
+            The Hoard Team will NOT be held responsible if your transactions are incorrect. Please make sure our address is accurate -see below-. You are advised to NOT use any ethereum wallets for sending XRD tokens to us. Wallet address here: rdx1qsp5hfmupgdgxa3akxtyl0thaudzu4zj4547znru58kg09tkdtz6qjg35gf0e
           </div>
           <div className="text-wrap mt-4 text-xl text-left font-bold ">
             REACH US:
