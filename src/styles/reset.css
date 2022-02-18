@@ -228,7 +228,7 @@ img{
 .max-w-3xl {
   max-width: 45rem;
 }
-#picture .small, #picture .small:visited {
+#picture a.small, #picture a.small:visited {
   display:block;
   width:20px;
   text-decoration:none;
@@ -236,13 +236,13 @@ img{
   left:0;
   border:0;
 }
-#picture img {
+#picture a img {
   border:0;
 }
-#picture .small:hover {
+#picture a.small:hover {
   text-decoration:none;
 }
-#picture .large {
+#picture a .large {
   position: absolute;
   display:block;
   width:0;
@@ -255,7 +255,7 @@ img{
   -moz-transition: opacity .25s ease-in-out;
   -webkit-transition: opacity .25s ease-in-out;
 }
-#picture .small:hover .large {
+#picture a.small:hover .large {
   position: absolute;
   display:block;
   /* top: 0px;
@@ -318,52 +318,4 @@ img{
   top: 8px;
   right: 8px;
   color: white;
-}
-
-.leaderboard{
-  height: calc(100vh - 320px);
-}
-
-@media screen and (max-width: 768px) {
-  .leaderboard{
-    height: calc(100vh - 200px);
-  }
-
-}
-
-#picture1 .small, #picture1 .small:visited {
-  display:block;
-  width:20px;
-  text-decoration:none;
-  top:0;
-  left:0;
-  border:0;
-}
-#picture1 img {
-  border:0;
-}
-#picture1 .small:hover {
-  text-decoration:none;
-}
-#picture1 .large {
-  position: absolute;
-  display:block;
-  width:0;
-  height:0;
-  border:0;
-  opacity: 0;
-  transition: opacity .25s ease-in-out;
-  -moz-transition: opacity .25s ease-in-out;
-  -webkit-transition: opacity .25s ease-in-out;
-}
-#picture1 .small:hover .large {
-  position: absolute;
-  display:block;
-  width:300px;
-  height:auto;
-  z-index: 999;
-  background-color: gray;
-  opacity: 1;
-  margin-top: -0px;
-  margin-left: 30px;
 }

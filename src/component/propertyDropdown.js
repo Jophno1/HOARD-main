@@ -11,16 +11,15 @@ const PropertyDropdown = (props) => {
   //const propList = props.propList;
   const [propList, setPropList] = useState(props.propList);
   const type = props.type;
-  const name = props.name;
 
   useEffect(() => {
-    // if(curSel !== ''){
+    if(curSel !== ''){
     setCurSel(props.value === undefined ? '' : `${props.value.name}   = ${props.value.point} PTS`);
-    // }
+    }
   }, [props.value])
 
   const toggle = () => {
-    if (!menu && type === false) inputFilter.current.focus();
+    if (!menu) inputFilter.current.focus();
     setMenu((prevState) => !prevState);
     setPropList(props.propList);
   };
@@ -63,17 +62,17 @@ const PropertyDropdown = (props) => {
   }
   return (
     <div>
-      {type === false || name === "Women Right Facing" || name === "Middle Rings" || name === "Men Right Facing" || name === "Women Left Facing" || name === "Men Left Facing" || name === "Inner Textures" ?
+      {type === false ?
       <Dropdown isOpen={menu} toggle={toggle} className="w-48">
         <DropdownToggle className="bg-black py-1 rounded-sm border border-slate-200 w-full h-[35px]">
             <div className="text-white flex flex-row items-center justify-between">
                 <div className="text-left">
-                  {type && curSel.length > 0 && (name !== "Women Right Facing" && name !== "Middle Rings" && name !== "Men Right Facing" && name !== "Women Left Facing" && name !== "Men Left Facing") ?
+                  {type && curSel.length > 0 ?
                   <div className="flex flex-row justify-between">
                     <div id="picture">
-                      <div className="small"><img src={((curSel.replace(/\s/g, '')).split('='))[0]} />
+                      <a className="small" href="#nogo"><img src={((curSel.replace(/\s/g, '')).split('='))[0]} />
                       <img className="large fade" src={((curSel.replace(/\s/g, '')).split('='))[0]} />
-                      </div>
+                      </a>
                     </div>
                       <div className="ml-[5px]">&nbsp;&nbsp;= {(curSel.split('='))[1]}</div>
                   </div>
@@ -85,10 +84,10 @@ const PropertyDropdown = (props) => {
                 </div>
             </div>
         </DropdownToggle>
-        {type === false ? <DropdownMenu className="bg-black w-full border border-t-0 border-slate-200 border-solid max-h-[250px] overflow-y-auto overflow-x-hidden nice-scroll">
+        <DropdownMenu className="bg-black w-full border border-t-0 border-slate-200 border-solid max-h-[250px] overflow-y-auto overflow-x-hidden nice-scroll">
           <div className="propDropdownItem h-[36px] w-full flex justify-center py-1">
             <input type="text" autoFocus ref={inputFilter} className="text-white bg-gray-200 bg-opacity-20 p-1 rounded-md w-[90%]" onChange={(e) => propSearchInput(e.target.value)} />
-          </div>
+          </div> 
           <DropdownItem onClick={() => onSelList(null)} key = {propList.length + + 1} className="text-white propDropdownItem h-[20px]"></DropdownItem>
             {
               propList.map((item,index) => {
@@ -111,37 +110,14 @@ const PropertyDropdown = (props) => {
               })
             }
         </DropdownMenu>
-        : <DropdownMenu className="bg-black w-full border border-t-0 border-slate-200 border-solid max-h-[250px] overflow-y-auto overflow-x-hidden nice-scroll">
-            <DropdownItem onClick={() => onSelList({name: "Yes", point: propList[0].point})} key={51684} className="text-white propDropdownItem h-[20px]" >
-              <div className="flex flex-row ">
-                <div className="text-white">
-                  Yes
-                </div>
-                <div className="text-white ml-[10px]">
-                  &nbsp;&nbsp;= {propList[0].point} PTS
-                </div>
-              </div>
-            </DropdownItem>
-            <DropdownItem onClick={() => onSelList({name: "No", point: "0"})} key={51685} className="text-white propDropdownItem h-[20px]" >
-              <div className="flex flex-row ">
-                <div className="text-white">
-                  No
-                </div>
-                <div className="text-white ml-[10px]">
-                  &nbsp;&nbsp;= 0 PTS
-                </div>
-              </div>
-            </DropdownItem>
-        </DropdownMenu>
-        }
       </Dropdown>
       : curSel.length > 0 ? 
       <div className="bg-black px-2 py-1 rounded-sm border border-slate-200 h-[35px] w-48 flex flex-row items-center justify-between propImgButton">
           <div className="flex flex-row items-center flex-1 pr-2 cursor-pointer" onClick={() => imgPropClick()}>
             <div id="picture">
-              <div className="small"><img src={((curSel.replace(/\s/g, '')).split('='))[0]} />
+              <a className="small" href="#nogo"><img src={((curSel.replace(/\s/g, '')).split('='))[0]} />
               <img className="large fade" src={((curSel.replace(/\s/g, '')).split('='))[0]} />
-              </div>
+              </a>
             </div>
             <div className="ml-[5px]">&nbsp;&nbsp;= {(curSel.split('='))[1]}</div>
           </div>
