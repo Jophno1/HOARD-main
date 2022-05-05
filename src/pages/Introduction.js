@@ -8,7 +8,7 @@ function Introduction() {
         
         <div className="text-center text-white w-full md:w-3/5 mt-3">                   
           <div className="text-wrap font-bold text-6xl">
-            About
+            100% HOARD TOKENS SOLD OUT - PLEASE DO NOT SEND TO WALLET ADDRESS ANYMORE - BUY HERE INSTEAD https://t.me/hoardxinvaderz_trading
           </div>
           <div className="text-wrap font-bold text-3xl mt-2">
             THE HOARD COLLECTION CONSISTS OF 10,000 UNIQUE NFT HOARD COINS INFLUENCED BY SEVERAL HISTORICAL ERA'S.
@@ -28,19 +28,16 @@ function Introduction() {
             HOARD WALLET ADDRESS:
           </div>
           <div className="text-wrap mt-1 text-lg text-left line-height">
-            You can reserve your HOARD by sending 25 XRD per HOARD TOKEN (Radix Tokens) to the HOARD WALLET address below.
+            100% HOARD TOKENS SOLD OUT - PLEASE DO NOT SEND TO WALLET ADDRESS ANYMORE - BUY HERE INSTEAD https://t.me/hoardxinvaderz_trading
           </div>
           <div className="text-wrap wallet-addr text-lg text-left font-bold w-full">
             rdx1qsp5hfmupgdgxa3akxtyl0thaudzu4zj4547znru58kg09tkdtz6qjg35gf0e
           </div>
           <div className="text-wrap font-bold text-xl mt-4 text-left">
-            EACH HOARD TOKEN IS 25 XRD currently:
-          </div>
-          <div className="text-wrap mt-1 text-lg text-left line-height">
-            Add a note matching the units you have purchased. for Example -HOARD TOKENS x 10 please-, DO NOT ENCRYPT. Please do not  specify coin numbers as this Project Randmomly Distributes the Tokens for Fairness. If not followed exactly, your funds will be sent back, subject to -1 XRD to cover transaction fees. 
+            FLOOR PRICE IN THE TRADING CHAT, IS CURRENTLY DETERMINING THE PRICE.
           </div>
           <div className="text-wrap font-bold text-xl mt-4 text-left ">
-            HOARD TOKEN/S WILL BE SENT BACK TO YOUR WALLET IN RETURN:
+            HOARD TOKEN/S WILL BE SENT BACK TO YOUR WALLET ONCE YOU HAVE PURCHASED FROM SOMEONE HERE: https://t.me/hoardxinvaderz_trading:
           </div>
           <div className="text-wrap mt-1 text-lg text-left line-height">
             This is currently a manual process right now, please be patient. Once you have recieved your HOARD TOKENS, you can check your allocation by coming back to www.hoardtokens.com website. Here you can see all of your coins by adding your wallet address in the ADVANCED BUTTON (wallet) text entry, as well as filter specific properties. If you want to guestimate the points of your HOARD TOKENS then you can goto the RARITY SEARCH BUTTON and export the data to compare. Lastly we have the LEADERBOARD BUTTON. Inside this page is the current leaderboard which will organically grow the more coins are purchased. The final Leaderboard is completed once all the 10000 HOARD TOKENS have been SOLD.
@@ -90,7 +87,7 @@ function Introduction() {
             TRADING
           </div>
           <div className="text-wrap font-bold text-lg mt-2">
-            THE HOARD COLLECTION CONSISTS OF 10,000 UNIQUE HOARD COINS INFLUENCED BY SEVERAL HISTORICAL ERA'S.
+            THE HOARD COLLECTION CONSISTS OF 10,000 UNIQUE HOARD COINS INFLUENCED BY SEVERAL HISTORICAL ERAS.
           </div>
           <div className="text-wrap wallet-addr font-bold text-lg mt-1">
             You both negotiate the transaction through the HOARD wallet ONLY as we have to change the reserve list which will be reflected on the website: rdx1qsp5hfmupgdgxa3akxtyl0thaudzu4zj4547znru58kg09tkdtz6qjg35gf0e 
@@ -121,6 +118,18 @@ function Introduction() {
           </div>
           <div className="text-wrap text-lg  text-left">
             If there is a match there, the trade will be finalized the next time we process the trade requests. The recipient would receive 90 xrd, 100 - 10 trading fee, and you would recieve 2 HOARD TOKENS. The database will be updated to reflect the new ownership. If you wish to cancel a pending trade, please get in touch in the links provided.
+          </div>
+        <div className="text-wrap font-bold text-3xl mt-8">
+            TRANSFERS
+          </div>
+          <div className="text-wrap font-bold text-lg mt-2">
+            SEND 1 HOARD TOKEN wih the message : Transfer 1234 to wallet address
+          </div>
+            <div className="text-wrap font-bold text-lg mt-2">
+            SEND Another Transaction for 10xrd with the message transfer fee for 1234
+          </div>
+          <div className="text-wrap wallet-addr font-bold text-lg mt-1">
+            You both negotiate the transaction through the HOARD wallet ONLY as we have to change the reserve list which will be reflected on the website: rdx1qsp5hfmupgdgxa3akxtyl0thaudzu4zj4547znru58kg09tkdtz6qjg35gf0e 
           </div>
           <div className="text-wrap font-bold text-3xl mt-8">
             DISCLAIMER
